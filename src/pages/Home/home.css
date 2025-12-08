@@ -1,0 +1,40 @@
+main {
+  background-color: #171719;
+}
+
+main .logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+main .logo .icon {
+  font-size: 100px;
+  color: #ff4655;
+}
+
+main .logo h1 {
+  font-size: 100px;
+  font-weight: bold;
+  color: white;
+}
+
+main .container {
+  background-color: #1f2023;
+  padding-top: 60px;
+}
+
+main .search {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+main .search input {
+  width: 500px;
+  height: 50px;
+}
+
+main .search p {
+  color: white;
+}

@@ -1,0 +1,36 @@
+header .container {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #1f2023;
+  padding: 10px 20px;
+  border-bottom: 2px #ff4655 solid;
+}
+
+header .container .icon {
+  color: #ff4655;
+  font-size: 30px;
+}
+
+header .container .logo {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.logo > p {
+  font-size: 30px;
+  color: white;
+  font-weight: bold;
+}
+
+header {
+  background-color: #171719;
+}
+
+header .header-buttons {
+  display: flex;
+  gap: 30px;
+}
