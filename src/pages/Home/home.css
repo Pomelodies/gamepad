@@ -4,8 +4,8 @@ main {
 
 main .logo {
   display: flex;
-  align-items: center;
   justify-content: center;
+  gap: 10px;
 }
 main .logo .icon {
   font-size: 100px;
@@ -14,13 +14,14 @@ main .logo .icon {
 
 main .logo h1 {
   font-size: 100px;
-  font-weight: bold;
+
   color: white;
+  margin-bottom: 15px;
 }
 
 main .container {
   background-color: #1f2023;
-  padding-top: 60px;
+  padding: 60px 20px;
 }
 
 main .search {
@@ -36,5 +37,47 @@ main .search input {
 }
 
 main .search p {
+  color: white;
+}
+
+main h2 {
+  font-size: 35px;
+  color: white;
+  margin: 20px 0;
+}
+
+main .all-games {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 0 20px;
+}
+
+main .all-games article {
+  width: 240px;
+}
+
+main .all-games article p {
+  position: relative;
+  top: 275px;
+  left: 10px;
+  text-wrap: wrap;
+  font-size: 20px;
+}
+
+main .all-games link {
+  text-decoration: none;
+}
+
+.all-games article img {
+  width: 250px;
+  height: 300px;
+  object-fit: cover;
+  object-position: top;
+  border-radius: 10px;
+}
+
+.link-article {
+  text-decoration: none;
   color: white;
 }
