@@ -12,7 +12,7 @@ const Home = ({ search, setSearch }) => {
   const debouncedFetch = useMemo(
     () =>
       debounce(
-        async () => {
+        async (value) => {
           let filters = "";
           if (value) {
             filters = filters + `&search="${value}"`;
@@ -25,8 +25,8 @@ const Home = ({ search, setSearch }) => {
           setData(response.data);
           setIsLoading(false);
         },
-        300,
-        { maxWait: 500 }
+        400,
+        { maxWait: 1000 }
       ),
     []
   );
@@ -75,12 +75,6 @@ const Home = ({ search, setSearch }) => {
             onChange={(event) => {
               setSearch(event.target.value);
             }}
-            // onChange={useCallback(
-            //   debounce((event) => {
-            //     setSearch(event.target.value);
-            //   }, 300),
-            //   []
-            // )}
           />
           <p>Search {data.count.toLocaleString()} games</p>
         </div>
