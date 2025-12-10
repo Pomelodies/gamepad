@@ -1,8 +1,9 @@
 import "./home.css";
 import { TbDeviceGamepad3Filled } from "react-icons/tb";
 import axios from "axios";
-import { useState, useEffect } from "react";
-import { Link, Links } from "react-router-dom";
+import { useState, useEffect, useCallback } from "react";
+import { Link } from "react-router-dom";
+import debounce from "lodash.debounce";
 
 const Home = ({ search, setSearch }) => {
   const [data, setData] = useState(null);
@@ -48,6 +49,12 @@ const Home = ({ search, setSearch }) => {
             onChange={(event) => {
               setSearch(event.target.value);
             }}
+            // onChange={useCallback(
+            //   debounce((event) => {
+            //     setSearch(event.target.value);
+            //   }, 300),
+            //   []
+            // )}
           />
           <p>Search {data.count.toLocaleString()} games</p>
         </div>
