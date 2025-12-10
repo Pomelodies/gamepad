@@ -24,7 +24,7 @@ const Game = () => {
     } catch (error) {
       console.log("error in useEffect =>", error);
     }
-  });
+  }, [params.id]);
 
   return isLoading ? (
     <div>Data is loading, please wait...!</div>
@@ -37,7 +37,49 @@ const Game = () => {
             src={data.background_image}
             alt={`${data.id} + ${data.name_original}`}
           />
-          <aside></aside>
+          <aside>
+            <div>
+              <button>Save to Collection</button>
+              <button>Add a Review</button>
+            </div>
+            <div>
+              <div>
+                <p>Plateforms</p>
+                {data.parent_platforms.map((platform) => {
+                  console.log(platform);
+                  return <span>{platform.platform.name}</span>;
+                })}
+              </div>
+              <div>
+                <p>Genre</p>
+                <p></p>
+              </div>
+            </div>
+            <div>
+              <div>
+                <p>Released date</p>
+                <p></p>
+              </div>
+              <div>
+                <p>Developper</p>
+                <p></p>
+              </div>
+            </div>
+            <div>
+              <div>
+                <p>Publisher</p>
+                <p></p>
+              </div>
+              <div>
+                <p>Age rating</p>
+                <p></p>
+              </div>
+            </div>
+            <div>
+              <p>About</p>
+              <p></p>
+            </div>
+          </aside>
         </div>
       </div>
     </main>

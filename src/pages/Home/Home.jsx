@@ -1,7 +1,7 @@
 import "./home.css";
 import { TbDeviceGamepad3Filled } from "react-icons/tb";
 import axios from "axios";
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { Link } from "react-router-dom";
 import debounce from "lodash.debounce";
 
@@ -9,26 +9,52 @@ const Home = ({ search, setSearch }) => {
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
+  const debouncedFetch = useMemo(
+    () =>
+      debounce(
+        async () => {
+          let filters = "";
+          if (value) {
+            filters = filters + `&search="${value}"`;
+          }
+          console.log(filters);
+          const response = await axios.get(
+            `https://api.rawg.io/api/games?key=f60dfb57a6af4a60b940f680f44697bb&${filters}&search_precise="true"`
+          );
+          // console.log(response.data);
+          setData(response.data);
+          setIsLoading(false);
+        },
+        300,
+        { maxWait: 500 }
+      ),
+    []
+  );
+
   useEffect(() => {
-    try {
-      const fetchData = async () => {
-        let filters = "";
-        if (search) {
-          filters = filters + `&search="${search}"`;
-        }
-        console.log(filters);
-        const response = await axios.get(
-          `https://api.rawg.io/api/games?key=f60dfb57a6af4a60b940f680f44697bb&${filters}&search_precise="true"`
-        );
-        // console.log(response.data);
-        setData(response.data);
-        setIsLoading(false);
-      };
-      fetchData();
-    } catch (error) {
-      console.log("error => ", error);
-    }
-  }, [search]);
+    debouncedFetch(search);
+  }, [search, debouncedFetch]);
+
+  // useEffect(() => {
+  //   try {
+  //     const fetchData = async () => {
+  //       let filters = "";
+  //       if (search) {
+  //         filters = filters + `&search="${search}"`;
+  //       }
+  //       console.log(filters);
+  //       const response = await axios.get(
+  //         `https://api.rawg.io/api/games?key=f60dfb57a6af4a60b940f680f44697bb&${filters}&search_precise="true"`
+  //       );
+  //       // console.log(response.data);
+  //       setData(response.data);
+  //       setIsLoading(false);
+  //     };
+  //     fetchData();
+  //   } catch (error) {
+  //     console.log("error => ", error);
+  //   }
+  // }, [search]);
 
   return isLoading ? (
     <main>
@@ -61,7 +87,7 @@ const Home = ({ search, setSearch }) => {
         <h2>Most Relevance Games</h2>
         <div className="all-games">
           {data.results.map((game) => {
-            console.log(game);
+            // console.log(game);
             return (
               <Link
                 to={`/games/${game.id}`}
