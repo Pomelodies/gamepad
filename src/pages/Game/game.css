@@ -1,0 +1,9 @@
+main h2 {
+  margin-top: 50px;
+}
+
+main .game-info img {
+  height: 350px;
+  width: 560px;
+  border-radius: 10px;
+}

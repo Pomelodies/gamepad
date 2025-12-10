@@ -1,0 +1,47 @@
+import "./game.css";
+import axios from "axios";
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+
+const Game = () => {
+  const [data, setData] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  const params = useParams();
+  console.log(params);
+
+  useEffect(() => {
+    try {
+      const fetchData = async () => {
+        const response = await axios.get(
+          `https://api.rawg.io/api/games/${params.id}?key=f60dfb57a6af4a60b940f680f44697bb`
+        );
+        // console.log(response.data);
+        setData(response.data);
+        setIsLoading(false);
+      };
+      fetchData();
+    } catch (error) {
+      console.log("error in useEffect =>", error);
+    }
+  });
+
+  return isLoading ? (
+    <div>Data is loading, please wait...!</div>
+  ) : (
+    <main>
+      <div className="container">
+        <h2>{data.name_original}</h2>
+        <div className="game-info">
+          <img
+            src={data.background_image}
+            alt={`${data.id} + ${data.name_original}`}
+          />
+          <aside></aside>
+        </div>
+      </div>
+    </main>
+  );
+};
+
+export default Game;

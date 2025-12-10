@@ -61,9 +61,13 @@ const Home = ({ search, setSearch }) => {
         <h2>Most Relevance Games</h2>
         <div className="all-games">
           {data.results.map((game) => {
-            // console.log(game);
+            console.log(game);
             return (
-              <Link key={game.id} className="link-article">
+              <Link
+                to={`/games/${game.id}`}
+                key={game.id}
+                className="link-article"
+              >
                 <article>
                   <p>{game.name}</p>
                   <img
