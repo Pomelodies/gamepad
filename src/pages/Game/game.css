@@ -3,15 +3,17 @@ main h2 {
 }
 
 main .game-info img {
+  height: 350px;
   width: 560px;
   border-radius: 10px;
   object-fit: cover;
 }
 
-main .game-info {
+main .container .game-info {
   display: flex;
   gap: 20px;
   color: white;
+  height: 400px;
 }
 
 main .game-info .game-info-aside {

@@ -1,0 +1,15 @@
+.similarGame-article img {
+  height: 250px;
+  width: 200px;
+  object-fit: cover;
+}
+
+.similarGame-section {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.similarGame-section p {
+  color: white;
+}

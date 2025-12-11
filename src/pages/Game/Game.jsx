@@ -3,13 +3,14 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import truncate from "../../utils/truncate";
+import SimilarGames from "../../components/SimilarGames/SimilarGames.jsx";
 
 const Game = () => {
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
   const params = useParams();
-  console.log(params);
+  // console.log(params);
 
   useEffect(() => {
     try {
@@ -108,6 +109,7 @@ const Game = () => {
             </p>
           </aside>
         </div>
+        <SimilarGames />;
       </div>
     </main>
   );
