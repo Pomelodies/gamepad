@@ -2,9 +2,11 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import "./similarGames.css";
 
-const SimilarGames = () => {
+const SimilarGames = ({ genreTab }) => {
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+
+  console.log(genreTab);
 
   // Faire une requête de ce type :
   // https://api.rawg.io/api/games?key=f60dfb57a6af4a60b940f680f44697bb&genres=indie,action,rpg
@@ -15,7 +17,7 @@ const SimilarGames = () => {
         const response = await axios.get(
           "https://api.rawg.io/api/games?key=f60dfb57a6af4a60b940f680f44697bb&genres=indie"
         );
-        console.log(response.data);
+        // console.log(response.data);
         setData(response.data);
         setIsLoading(false);
       };
