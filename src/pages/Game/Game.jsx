@@ -2,6 +2,7 @@ import "./game.css";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import truncate from "../../utils/truncate";
 
 const Game = () => {
   const [data, setData] = useState(null);
@@ -37,48 +38,74 @@ const Game = () => {
             src={data.background_image}
             alt={`${data.id} + ${data.name_original}`}
           />
-          <aside>
+          <aside className="game-info-aside">
             <div>
               <button>Save to Collection</button>
               <button>Add a Review</button>
             </div>
             <div>
               <div>
-                <p>Plateforms</p>
-                {data.parent_platforms.map((platform) => {
-                  console.log(platform);
-                  return <span>{platform.platform.name}</span>;
-                })}
+                <h3>Plateforms</h3>
+                <div className="plateforms">
+                  {data.platforms
+                    ? data.platforms.map((platform) => {
+                        // console.log(platform);
+                        return <p>{platform.platform.name}</p>;
+                      })
+                    : "N/A"}
+                </div>
               </div>
               <div>
-                <p>Genre</p>
-                <p></p>
+                <h3>Genre</h3>
+                <div className="genres">
+                  {data.genres
+                    ? data.genres.map((genre) => {
+                        // console.log(genre);
+                        return <p>{genre.name}</p>;
+                      })
+                    : "N/A"}
+                </div>
               </div>
             </div>
             <div>
               <div>
-                <p>Released date</p>
-                <p></p>
+                <h3>Released date</h3>
+                <p>{data.released ? data.released : "N/A"}</p>
+                {/* {console.log(typeof data.released)} */}
               </div>
               <div>
-                <p>Developper</p>
-                <p></p>
+                <h3>Developers</h3>
+                <div className="developers">
+                  {data.developers
+                    ? data.developers.map((developper) => {
+                        // console.log(genre);
+                        return <p>{developper.name}</p>;
+                      })
+                    : "N/A"}
+                </div>
               </div>
             </div>
             <div>
               <div>
-                <p>Publisher</p>
-                <p></p>
+                <h3>Publisher</h3>
+                <div>
+                  {data.publishers
+                    ? data.publishers.map((publisher) => {
+                        // console.log(genre);
+                        return <p>{publisher.name}</p>;
+                      })
+                    : "N/A"}
+                </div>
               </div>
               <div>
-                <p>Age rating</p>
-                <p></p>
+                <h3>Age rating</h3>
+                <p>{data.esrb_rating ? data.esrb_rating.name : "Not rated"}</p>
               </div>
             </div>
-            <div>
-              <p>About</p>
-              <p></p>
-            </div>
+            <h3>About</h3>
+            <p>
+              {data.description_raw ? truncate(data.description_raw) : "N/A"}
+            </p>
           </aside>
         </div>
       </div>

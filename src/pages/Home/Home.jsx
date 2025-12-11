@@ -25,7 +25,7 @@ const Home = ({ search, setSearch }) => {
           setData(response.data);
           setIsLoading(false);
         },
-        400,
+        600,
         { maxWait: 1000 }
       ),
     []

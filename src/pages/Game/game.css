@@ -3,7 +3,39 @@ main h2 {
 }
 
 main .game-info img {
-  height: 350px;
   width: 560px;
   border-radius: 10px;
+  object-fit: cover;
+}
+
+main .game-info {
+  display: flex;
+  gap: 20px;
+  color: white;
+}
+
+main .game-info .game-info-aside {
+  height: 350px;
+  width: 560px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-right: 30px;
+}
+
+main .game-info .game-info-aside > div {
+  display: flex;
+  gap: 100px;
+}
+
+main .game-info .game-info-aside h3 {
+  color: grey;
+}
+
+main .game-info .game-info-aside .genres,
+main .game-info .game-info-aside .plateforms,
+main .game-info .game-info-aside .developers {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
 }
