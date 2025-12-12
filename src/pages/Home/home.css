@@ -81,3 +81,8 @@ main .all-games link {
   text-decoration: none;
   color: white;
 }
+
+main .container > h3 {
+  color: white;
+  font-size: 25px;
+}

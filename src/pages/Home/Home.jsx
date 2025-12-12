@@ -76,9 +76,10 @@ const Home = ({ search, setSearch }) => {
               setSearch(event.target.value);
             }}
           />
+          <h2>Search result for "{search}"</h2>
           <p>Search {data.count.toLocaleString()} games</p>
         </div>
-        <h2>Most Relevance Games</h2>
+        {search ? "" : <h3>Most Relevance Games</h3>}
         <div className="all-games">
           {data.results.map((game) => {
             // console.log(game);

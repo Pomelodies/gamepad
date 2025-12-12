@@ -4,6 +4,7 @@ import { useState } from "react";
 import Home from "./pages/Home/Home";
 import Header from "./components/Header/Header";
 import Game from "./pages/Game/Game";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   const [search, setSearch] = useState("");
@@ -18,6 +19,7 @@ function App() {
           />
           <Route path="/games/:id" element={<Game />} />
         </Routes>
+        <Footer />
       </Router>
     </>
   );
