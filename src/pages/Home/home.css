@@ -60,6 +60,8 @@ main .all-games article {
 
 main .all-games article p {
   position: absolute;
+  bottom: 50px;
+  left: 10px;
   /* display: flex;
   justify-content: center;
   align-items: center; */
@@ -81,7 +83,7 @@ main .all-games link {
 .link-article {
   text-decoration: none;
   color: white;
-  width: calc((100%-80px) / 5);
+  width: calc((100% - 80px) / 5);
   height: 300px;
 }
 
