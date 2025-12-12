@@ -76,7 +76,7 @@ const Home = ({ search, setSearch }) => {
               setSearch(event.target.value);
             }}
           />
-          <h2>Search result for "{search}"</h2>
+          {search ? <h2>Search result for "{search}"</h2> : ""}
           <p>Search {data.count.toLocaleString()} games</p>
         </div>
         {search ? "" : <h3>Most Relevance Games</h3>}

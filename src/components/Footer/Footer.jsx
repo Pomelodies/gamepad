@@ -2,9 +2,9 @@ import "./footer.css";
 
 const Footer = () => {
   return (
-    <Footer>
+    <footer>
       <div className="container">Powered by Rawg API</div>
-    </Footer>
+    </footer>
   );
 };
 

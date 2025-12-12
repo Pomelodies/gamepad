@@ -1,0 +1,10 @@
+footer .container {
+  text-align: end;
+  background-color: #1f2023;
+  color: white;
+  padding: 10px;
+}
+
+footer {
+  background-color: #171719;
+}
