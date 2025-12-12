@@ -20,7 +20,7 @@ const Game = () => {
         const response = await axios.get(
           `https://api.rawg.io/api/games/${params.id}?key=f60dfb57a6af4a60b940f680f44697bb`
         );
-        console.log(response.data);
+        // console.log(response.data);
         setData(response.data);
         setIsLoading(false);
       };
@@ -62,12 +62,9 @@ const Game = () => {
                 <h3>Genre</h3>
                 <div className="genres">
                   {data.genres
-                    ? data.genres.map((genre) => {
-                        // console.log(genre);
-                        for (let i = 0; i < data.genres.length; i++) {
-                          genreTab.push(data.genres[i].name);
-                        }
-                        console.log(genreTab);
+                    ? data.genres.map((genre, index) => {
+                        genreTab.push(data.genres[index].name);
+                        // console.log(genreTab);
                         return <p>{genre.name}</p>;
                       })
                     : "N/A"}
