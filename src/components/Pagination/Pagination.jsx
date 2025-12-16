@@ -32,7 +32,7 @@ const Pagination = ({ gameTotal, pageNum, setPageNum }) => {
         return (
           pageNum === page && (
             <>
-              {page > 2 ? (
+              {page > 2 && (
                 <button
                   className="previousMinusTwo"
                   onClick={() => {
@@ -41,10 +41,8 @@ const Pagination = ({ gameTotal, pageNum, setPageNum }) => {
                 >
                   {page - 2}
                 </button>
-              ) : (
-                ""
               )}
-              {page > 1 ? (
+              {page > 1 && (
                 <button
                   className="previousMinusOne"
                   onClick={() => {
@@ -53,8 +51,6 @@ const Pagination = ({ gameTotal, pageNum, setPageNum }) => {
                 >
                   {page - 1}
                 </button>
-              ) : (
-                ""
               )}
               <button
                 className="actualPage"
@@ -65,34 +61,40 @@ const Pagination = ({ gameTotal, pageNum, setPageNum }) => {
               >
                 {page}
               </button>
-              <button
-                className="nextOne"
-                onClick={() => {
-                  setPageNum(page + 1);
-                }}
-              >
-                {page + 1}
-              </button>
-              <button
-                className="nextTwo"
-                onClick={() => {
-                  setPageNum(page + 2);
-                }}
-              >
-                {page + 2}
-              </button>
+              {Math.ceil(gameTotal / 20) > 1 && (
+                <button
+                  className="nextOne"
+                  onClick={() => {
+                    setPageNum(page + 1);
+                  }}
+                >
+                  {page + 1}
+                </button>
+              )}
+              {Math.ceil(gameTotal / 20) > 2 && (
+                <button
+                  className="nextTwo"
+                  onClick={() => {
+                    setPageNum(page + 2);
+                  }}
+                >
+                  {page + 2}
+                </button>
+              )}
             </>
           )
         );
       })}
-      <button
-        className="nextTen"
-        onClick={() => {
-          setPageNum(pageNum + 10);
-        }}
-      >
-        Next
-      </button>
+      {Math.ceil(gameTotal / 20) > 10 && (
+        <button
+          className="nextTen"
+          onClick={() => {
+            setPageNum(pageNum + 10);
+          }}
+        >
+          Next
+        </button>
+      )}
       {pageNum < Math.ceil(gameTotal / 20) - 100 && (
         <button
           className="nextHundred"
