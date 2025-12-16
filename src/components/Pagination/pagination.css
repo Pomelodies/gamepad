@@ -2,4 +2,25 @@
   text-align: center;
   background-color: #1f2023;
   margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.pageNumber > button {
+  color: #ff4655;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.pageNumber > button:hover {
+  color: aqua;
+}
+
+.pageNumber .actualPage {
+  background-color: yellow;
+  text-decoration: underline;
+  border-radius: 50px;
+  font-weight: bold;
 }
