@@ -4,22 +4,33 @@ import axios from "axios";
 import { useState, useEffect, useMemo } from "react";
 import { Link } from "react-router-dom";
 import debounce from "lodash.debounce";
+import Pagination from "../../components/Pagination/Pagination";
 
-const Home = ({ search, setSearch }) => {
+const Home = ({ search, setSearch, pageNum, setPageNum }) => {
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
   const debouncedFetch = useMemo(
     () =>
       debounce(
-        async (value) => {
+        async (value, pageNum) => {
+          console.log(value);
+          console.log(pageNum);
           let filters = "";
+          let pages = "";
+          if (pageNum) {
+            pages = pages + `&page_size=${pageNum}`;
+          }
           if (value) {
             filters = filters + `&search="${value}"`;
           }
           console.log(filters);
+          console.log(pages);
+          console.log(
+            `https://api.rawg.io/api/games?key=f60dfb57a6af4a60b940f680f44697bb&search_precise=true${pages}${filters}`
+          );
           const response = await axios.get(
-            `https://api.rawg.io/api/games?key=f60dfb57a6af4a60b940f680f44697bb&${filters}&search_precise="true"`
+            `https://api.rawg.io/api/games?key=f60dfb57a6af4a60b940f680f44697bb${pages}${filters}&search_precise=true`
           );
           // console.log(response.data);
           setData(response.data);
@@ -32,8 +43,8 @@ const Home = ({ search, setSearch }) => {
   );
 
   useEffect(() => {
-    debouncedFetch(search);
-  }, [search, debouncedFetch]);
+    debouncedFetch(search, pageNum);
+  }, [search, debouncedFetch, pageNum]);
 
   // useEffect(() => {
   //   try {
@@ -101,6 +112,7 @@ const Home = ({ search, setSearch }) => {
           })}
         </div>
       </div>
+      {/* <Pagination setPageNum={setPageNum} /> */}
     </main>
   );
 };

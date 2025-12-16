@@ -8,6 +8,8 @@ import Footer from "./components/Footer/Footer";
 
 function App() {
   const [search, setSearch] = useState("");
+  const [pageNum, setPageNum] = useState(0);
+
   return (
     <>
       <Router>
@@ -15,7 +17,14 @@ function App() {
         <Routes>
           <Route
             path="/"
-            element={<Home search={search} setSearch={setSearch} />}
+            element={
+              <Home
+                search={search}
+                setSearch={setSearch}
+                pageNum={pageNum}
+                setPageNum={setPageNum}
+              />
+            }
           />
           <Route path="/games/:id" element={<Game />} />
         </Routes>
