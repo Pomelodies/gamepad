@@ -98,7 +98,7 @@ main .filters {
   margin: 15px 0;
 }
 
-main .filters div {
+main .filters > div {
   display: flex;
   gap: 20px;
   align-items: center;

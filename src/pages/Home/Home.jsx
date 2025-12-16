@@ -109,13 +109,15 @@ const Home = ({ search, setSearch }) => {
             </select>
           </div>
           <div>
-            <label htmlFor="sortBy">Sort By :</label>
-            <select name="sortBy" id="sortBy">
-              <option value="default">Default</option>
-              <option value="name">Name</option>
-              <option value="releaseDate">Release Date</option>
-              <option value="rating">Rating</option>
-            </select>
+            <div>
+              <label htmlFor="sortBy">Sort By :</label>
+              <select name="sortBy" id="sortBy">
+                <option value="default">Default</option>
+                <option value="name">Name</option>
+                <option value="releaseDate">Release Date</option>
+                <option value="rating">Rating</option>
+              </select>
+            </div>
             <button>Go Filters !</button>
           </div>
         </div>
