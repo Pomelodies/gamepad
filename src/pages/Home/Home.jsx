@@ -6,9 +6,10 @@ import { Link } from "react-router-dom";
 import debounce from "lodash.debounce";
 import Pagination from "../../components/Pagination/Pagination";
 
-const Home = ({ search, setSearch, pageNum, setPageNum }) => {
+const Home = ({ search, setSearch }) => {
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [pageNum, setPageNum] = useState(1);
 
   const debouncedFetch = useMemo(
     () =>
@@ -19,25 +20,22 @@ const Home = ({ search, setSearch, pageNum, setPageNum }) => {
           let filters = "";
           let pages = "";
           if (pageNum) {
-            pages = pages + `&page_size=${pageNum}`;
+            pages = pages + `&page=${pageNum}`;
           }
           if (value) {
             filters = filters + `&search="${value}"`;
           }
           console.log(filters);
           console.log(pages);
-          console.log(
-            `https://api.rawg.io/api/games?key=f60dfb57a6af4a60b940f680f44697bb&search_precise=true${pages}${filters}`
-          );
           const response = await axios.get(
-            `https://api.rawg.io/api/games?key=f60dfb57a6af4a60b940f680f44697bb${pages}${filters}&search_precise=true`
+            `https://api.rawg.io/api/games?key=f60dfb57a6af4a60b940f680f44697bb${pages}${filters}&search_precise=true&page_size=20`
           );
           // console.log(response.data);
           setData(response.data);
           setIsLoading(false);
         },
-        600,
-        { maxWait: 1000 }
+        300,
+        { maxWait: 500 }
       ),
     []
   );
@@ -111,8 +109,12 @@ const Home = ({ search, setSearch, pageNum, setPageNum }) => {
             );
           })}
         </div>
+        <Pagination
+          gameTotal={data.count}
+          pageNum={pageNum}
+          setPageNum={setPageNum}
+        />
       </div>
-      {/* <Pagination setPageNum={setPageNum} /> */}
     </main>
   );
 };
