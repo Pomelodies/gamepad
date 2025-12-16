@@ -12,14 +12,15 @@
   border: none;
   background-color: transparent;
   cursor: pointer;
+  font-size: 15px;
 }
 
 .pageNumber > button:hover {
-  color: aqua;
+  color: #55ff46;
 }
 
 .pageNumber .actualPage {
-  background-color: yellow;
+  background-color: #4655ff;
   text-decoration: underline;
   border-radius: 50px;
   font-weight: bold;

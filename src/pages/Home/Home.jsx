@@ -10,6 +10,9 @@ const Home = ({ search, setSearch }) => {
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [pageNum, setPageNum] = useState(1);
+  const [platform, setPlatform] = useState("All");
+  const [type, setType] = useState("All");
+  const [sortBy, setSortBy] = useState("Default");
 
   const debouncedFetch = useMemo(
     () =>
@@ -89,6 +92,33 @@ const Home = ({ search, setSearch }) => {
           <p>Search {data.count.toLocaleString()} games</p>
         </div>
         {search ? "" : <h3>Most Relevance Games</h3>}
+        <div className="filters">
+          <div>
+            <select name="platform" id="platform">
+              <option value="all">Platform : All</option>
+              <option value="ps5">Platform : PS5</option>
+              <option value="xbox">Platform : Xbox</option>
+              <option value="switch">Platform : Switch</option>
+            </select>
+            <select name="type" id="type">
+              <option value="all">Type : All</option>
+              <option value="rpg">Type : RPG</option>
+              <option value="indie">Type : Indie</option>
+              <option value="platformer">Type : Platformer</option>
+              <option value="adventure">Type : Adventure</option>
+            </select>
+          </div>
+          <div>
+            <label htmlFor="sortBy">Sort By :</label>
+            <select name="sortBy" id="sortBy">
+              <option value="default">Default</option>
+              <option value="name">Name</option>
+              <option value="releaseDate">Release Date</option>
+              <option value="rating">Rating</option>
+            </select>
+            <button>Go Filters !</button>
+          </div>
+        </div>
         <div className="all-games">
           {data.results.map((game) => {
             // console.log(game);

@@ -91,3 +91,15 @@ main .container > h3 {
   color: white;
   font-size: 25px;
 }
+
+main .filters {
+  display: flex;
+  justify-content: space-between;
+  margin: 15px 0;
+}
+
+main .filters div {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}

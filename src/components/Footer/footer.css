@@ -8,3 +8,7 @@ footer .container {
 footer {
   background-color: #171719;
 }
+
+footer .container .linkToApi {
+  color: white;
+}

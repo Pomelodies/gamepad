@@ -1,4 +1,8 @@
 import "./pagination.css";
+import { RiArrowRightSLine } from "react-icons/ri";
+import { RiArrowLeftSLine } from "react-icons/ri";
+import { RxDoubleArrowRight } from "react-icons/rx";
+import { RxDoubleArrowLeft } from "react-icons/rx";
 
 const Pagination = ({ gameTotal, pageNum, setPageNum }) => {
   let pages = [];
@@ -15,7 +19,7 @@ const Pagination = ({ gameTotal, pageNum, setPageNum }) => {
             setPageNum(pageNum - 100);
           }}
         >
-          PreviousPrevious
+          <RxDoubleArrowLeft />
         </button>
       )}
       {pageNum > 10 && (
@@ -25,7 +29,7 @@ const Pagination = ({ gameTotal, pageNum, setPageNum }) => {
             setPageNum(pageNum - 10);
           }}
         >
-          Previous
+          <RiArrowLeftSLine />
         </button>
       )}
       {pages.map((page, index) => {
@@ -92,7 +96,7 @@ const Pagination = ({ gameTotal, pageNum, setPageNum }) => {
             setPageNum(pageNum + 10);
           }}
         >
-          Next
+          <RiArrowRightSLine />
         </button>
       )}
       {pageNum < Math.ceil(gameTotal / 20) - 100 && (
@@ -102,7 +106,7 @@ const Pagination = ({ gameTotal, pageNum, setPageNum }) => {
             setPageNum(pageNum + 100);
           }}
         >
-          NextNext
+          <RxDoubleArrowRight />
         </button>
       )}
     </div>
