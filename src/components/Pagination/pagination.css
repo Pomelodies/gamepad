@@ -8,7 +8,7 @@
 }
 
 .pageNumber > button {
-  color: #ff4655;
+  color: white;
   border: none;
   background-color: transparent;
   cursor: pointer;
@@ -20,7 +20,7 @@
 }
 
 .pageNumber .actualPage {
-  background-color: #4655ff;
+  background-color: #ff4655;
   text-decoration: underline;
   border-radius: 50px;
   font-weight: bold;

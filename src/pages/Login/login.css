@@ -1,0 +1,64 @@
+main .container {
+  padding: 150px 0;
+}
+main .container .login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+main .container .login .info-login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  background-color: #2d2d2f;
+  border-right: 2px solid #ff4655;
+}
+
+main .container .login .info-login > div {
+  display: flex;
+  gap: 10px;
+  color: white;
+  align-items: center;
+}
+
+main .container .login .info-login > div .icon {
+  font-size: 30px;
+}
+
+main .container .login .input-login form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+main .container .login .input-login {
+  background-color: #333436;
+}
+
+main .container .login section {
+  width: 400px;
+  padding: 0 30px;
+  height: 450px;
+}
+
+main .container .login .input-login input,
+main .container .login .input-login button {
+  height: 35px;
+  border-radius: 5px;
+  border: none;
+  padding-left: 10px;
+}
+main .container .login .input-login button {
+  background-color: #ff4655;
+  color: white;
+  margin-bottom: 10px;
+}
+
+main .container .login .linkToSignup {
+  text-decoration: none;
+  color: white;
+  text-align: center;
+  font-size: 12px;
+}

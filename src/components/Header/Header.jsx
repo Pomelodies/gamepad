@@ -15,7 +15,9 @@ const Header = () => {
         </Link>
         <div className="header-buttons">
           <button>My Collection</button>
-          <button>Login</button>
+          <Link to="/login">
+            <button>Login</button>
+          </Link>
         </div>
       </div>
     </header>

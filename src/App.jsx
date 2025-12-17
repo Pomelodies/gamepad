@@ -5,6 +5,8 @@ import Home from "./pages/Home/Home";
 import Header from "./components/Header/Header";
 import Game from "./pages/Game/Game";
 import Footer from "./components/Footer/Footer";
+import Signup from "./pages/Signup/Signup";
+import Login from "./pages/Login/Login";
 
 function App() {
   const [search, setSearch] = useState("");
@@ -19,6 +21,8 @@ function App() {
             element={<Home search={search} setSearch={setSearch} />}
           />
           <Route path="/games/:id" element={<Game />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/login" element={<Login />} />
         </Routes>
         <Footer />
       </Router>
