@@ -9,7 +9,7 @@ const Pagination = ({ gameTotal, pageNum, setPageNum }) => {
   for (let i = 1; i <= Math.ceil(gameTotal / 20); i++) {
     pages.push(i);
   }
-  console.log(pages);
+  // console.log(pages);
   return (
     <div className="pageNumber">
       {pageNum > 100 && (
