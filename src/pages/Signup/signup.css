@@ -62,3 +62,8 @@ main .container .signup .linkToLogin {
   text-align: center;
   font-size: 12px;
 }
+
+.signup .error {
+  color: red;
+  text-align: center;
+}
